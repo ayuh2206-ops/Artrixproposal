@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Artrix x Vero Media Strategic Alliance - Digital Transformation Roadmap">
+    <meta name="theme-color" content="#050505">
+    <title>Artrix x Vero Media | Strategic Alliance</title>
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'artrix-red': '#ea580c',
+                        'artrix-dark': '#050505',
+                        'glass-border': 'rgba(255, 255, 255, 0.15)',
+                        'glass-bg': 'rgba(20, 20, 20, 0.4)',
+                    },
+                    fontFamily: {
+                        serif: ['"Cinzel"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    animation: {
+                        'pan-slow': 'pan 60s infinite alternate linear',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        pan: {
+                            '0%': { transform: 'scale(1) translate(0, 0)' },
+                            '100%': { transform: 'scale(1.1) translate(-2%, -2%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '1', boxShadow: '0 0 20px rgba(234, 88, 12, 0.5)' },
+                            '50%': { opacity: '0.8', boxShadow: '0 0 10px rgba(234, 88, 12, 0.2)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body class="antialiased bg-artrix-dark text-white overflow-hidden">
+
+    <!-- Top Navigation Overlay -->
+    <div class="nav-controls fixed top-8 left-8 mix-blend-difference pointer-events-none z-[200]">
+        <div class="text-artrix-red font-mono text-[10px] tracking-[0.4em] uppercase mb-1">Strategic Proposal</div>
+        <div class="text-white font-serif text-sm tracking-widest font-bold">ARTRIX × VERO MEDIA</div>
+    </div>
+
+    <!-- Slide Indicator -->
+    <div class="nav-controls fixed bottom-8 left-8 mix-blend-difference pointer-events-none">
+        <div class="text-white font-serif text-2xl font-bold" id="slide-indicator">01<span class="text-sm opacity-50 font-normal mx-2">/</span>13</div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-controls fixed bottom-8 right-8 flex gap-4 pointer-events-auto z-[200]">
+        <button id="btn-prev" class="w-14 h-14 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer group active:scale-95 opacity-30 pointer-events-none">
+            <i class="ph ph-arrow-left text-xl"></i>
+        </button>
+        <button id="btn-next" class="w-14 h-14 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer group active:scale-95">
+            <i class="ph ph-arrow-right text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-white/10 z-[200]">
+        <div id="progress-bar" class="h-full bg-artrix-red transition-all duration-500" style="width: 7.69%"></div>
+    </div>
+
+    <main class="relative w-full h-screen bg-black">
+
+        <!-- ================================================================
+             SLIDE 1: TITLE - Strategic Digital Transformation
+             ================================================================ -->
+        <div class="slide active" data-index="1">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Modern architecture skyline" 
+                     class="w-full h-full object-cover opacity-80 animate-pan-slow"
+                     loading="eager">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent"></div>
+            </div>
+            
+            <div class="absolute inset-0 flex flex-col justify-center px-16 z-20">
+                <div class="reveal reveal-1 mb-6">
+                    <span class="font-mono text-xs uppercase tracking-[0.4em] text-artrix-red border border-artrix-red/50 px-4 py-2 rounded-full backdrop-blur-md">Brand & Growth Roadmap</span>
+                </div>
+                
+                <h1 class="reveal reveal-2 font-serif text-[10vw] leading-[0.85] text-white mix-blend-overlay opacity-90 font-black tracking-tighter">
+                    STRATEGIC
+                </h1>
+                <h1 class="reveal reveal-2 font-serif text-[10vw] leading-[0.85] text-white font-black tracking-tighter ml-16 relative">
+                    DIGITAL
+                </h1>
+                <h1 class="reveal reveal-2 font-serif text-[8vw] leading-[0.85] text-artrix-red font-black tracking-tighter ml-32">
+                    TRANSFORMATION
+                </h1>
+
+                <div class="reveal reveal-3 mt-12 max-w-xl border-l-2 border-artrix-red pl-8 bg-black/40 backdrop-blur-sm p-6 rounded-r-xl">
+                    <p class="font-sans text-xl text-white/90 leading-relaxed font-light">
+                        Comprehensive Brand & Growth Roadmap for <span class="font-bold text-white">Artrix</span>.<br>
+                        <span class="text-white/70">Aligning Digital Presence with Physical Excellence.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 2: BRIDGING THE GAP
+             ================================================================ -->
+        <div class="slide" data-index="2">
+            <div class="absolute inset-0 bg-black">
+                <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Construction site aerial view" 
+                     class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale"
+                     loading="lazy">
+            </div>
+
+            <div class="absolute inset-0 flex items-center justify-center z-10">
+                <div class="reveal reveal-1 relative w-[60vw] h-[70vh] border border-white/20 overflow-hidden shadow-2xl group transition-all duration-1000 hover:w-[70vw]">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=2000&auto=format&fit=crop&q=80" 
+                         alt="Digital network visualization" 
+                         class="absolute inset-0 w-full h-full object-cover mix-blend-hard-light animate-pan-slow scale-125"
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-artrix-red/10 mix-blend-overlay"></div>
+                    
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                        <div class="bg-black/60 backdrop-blur-xl p-8 border border-white/10">
+                            <h2 class="font-serif text-5xl text-white mb-2">Bridging the Gap</h2>
+                            <div class="flex items-center gap-4 justify-center text-xs font-mono text-artrix-red tracking-widest uppercase">
+                                <span>Market Reputation</span>
+                                <i class="ph ph-arrows-left-right text-white"></i>
+                                <span>Digital Authority</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute left-12 bottom-12 reveal reveal-2 max-w-sm text-white/80 text-sm font-sans bg-black/50 p-5 backdrop-blur rounded-lg">
+                <span class="block text-artrix-red font-bold mb-2 font-mono text-xs tracking-wider">PHYSICAL EXCELLENCE</span>
+                Proven track record in massive infrastructure projects — Nalanda, Museums, and beyond.
+            </div>
+            <div class="absolute right-12 top-24 reveal reveal-3 max-w-sm text-right text-white/80 text-sm font-sans bg-black/50 p-5 backdrop-blur rounded-lg">
+                <span class="block text-artrix-red font-bold mb-2 font-mono text-xs tracking-wider">DIGITAL AUTHORITY</span>
+                A world-class online platform that validates your capability to global stakeholders.
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 3: SERVICE OVERVIEW - Three Pillars
+             ================================================================ -->
+        <div class="slide" data-index="3">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Global digital network" 
+                     class="w-full h-full object-cover opacity-30 animate-pan-slow"
+                     loading="lazy">
+                <div class="absolute inset-0 bg-black/70"></div>
+            </div>
+            
+            <div class="absolute inset-0 flex flex-col justify-center px-16 max-w-[1800px] mx-auto z-10">
+                <h2 class="reveal reveal-1 font-serif text-6xl text-white mb-16 text-center">Our Service Framework</h2>
+
+                <div class="flex justify-center gap-8 items-end h-[50vh] w-full reveal reveal-2">
+                    <!-- Pillar 1: Immersive Platform -->
+                    <div class="w-1/3 h-[80%] bg-gradient-to-t from-white/10 to-transparent border border-white/10 p-8 flex flex-col justify-end group hover:bg-white/5 transition-all pillar">
+                        <i class="ph ph-monitor-play text-6xl text-artrix-red mb-6 drop-shadow-[0_0_15px_rgba(234,88,12,0.5)]"></i>
+                        <h3 class="font-serif text-3xl text-white mb-2">Immersive Platform</h3>
+                        <p class="font-sans text-sm text-white/70">Custom web development optimized for high-stakes presentations to Ministers and Officials.</p>
+                        <div class="h-1 w-full bg-artrix-red mt-6 progress-bar"></div>
+                    </div>
+                    <!-- Pillar 2: Project Documentation (Taller) -->
+                    <div class="w-1/3 h-[100%] bg-gradient-to-t from-white/10 to-transparent border border-white/10 p-8 flex flex-col justify-end group hover:bg-white/5 transition-all pillar">
+                        <i class="ph ph-film-slate text-6xl text-white mb-6 group-hover:text-artrix-red transition-colors drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
+                        <h3 class="font-serif text-3xl text-white mb-2">Project Documentation</h3>
+                        <p class="font-sans text-sm text-white/70">Cinematic video production showcasing engineering mastery and construction milestones.</p>
+                        <div class="h-1 w-full bg-white mt-6 progress-bar"></div>
+                    </div>
+                    <!-- Pillar 3: Industry Leadership -->
+                    <div class="w-1/3 h-[80%] bg-gradient-to-t from-white/10 to-transparent border border-white/10 p-8 flex flex-col justify-end group hover:bg-white/5 transition-all pillar">
+                        <i class="ph ph-users-three text-6xl text-artrix-red mb-6 drop-shadow-[0_0_15px_rgba(234,88,12,0.5)]"></i>
+                        <h3 class="font-serif text-3xl text-white mb-2">Industry Leadership</h3>
+                        <p class="font-sans text-sm text-white/70">Positioning Artrix as a thought leader through curated events and strategic networking.</p>
+                        <div class="h-1 w-full bg-artrix-red mt-6 progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 4: THE PRESENTATION PLATFORM
+             ================================================================ -->
+        <div class="slide" data-index="4">
+            <div class="absolute inset-0 bg-[#080808]">
+                <div class="absolute inset-0 opacity-10 dot-grid"></div>
+            </div>
+
+            <div class="absolute inset-0 flex items-center justify-between px-24 z-10">
+                <div class="w-1/3 reveal reveal-1">
+                    <h2 class="font-serif text-6xl mb-6 text-white leading-none">The Presentation<br><span class="text-artrix-red">Platform.</span></h2>
+                    <p class="font-sans font-light text-white/80 leading-relaxed mb-10 text-lg border-l-4 border-white pl-6">
+                        A tablet-first digital experience designed specifically for presenting to <span class="font-bold text-white">Ministers and Officials</span>. It functions as an interactive portfolio, not just a website.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-6 bg-white/5 border border-white/10 rounded backdrop-blur text-center hover:bg-artrix-red/20 transition-colors">
+                            <i class="ph ph-cube text-4xl text-white mb-2"></i>
+                            <div class="text-xs font-mono uppercase tracking-wider mt-2">Remote Inspections</div>
+                            <div class="text-[10px] text-white/50 mt-1">Matterport 360° Tours</div>
+                        </div>
+                        <div class="p-6 bg-white/5 border border-white/10 rounded backdrop-blur text-center hover:bg-artrix-red/20 transition-colors">
+                            <i class="ph ph-scroll text-4xl text-white mb-2"></i>
+                            <div class="text-xs font-mono uppercase tracking-wider mt-2">Scrollytelling</div>
+                            <div class="text-[10px] text-white/50 mt-1">Interactive Timelines</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-1/2 relative reveal reveal-2" style="perspective: 1000px;">
+                    <div class="absolute top-0 right-0 w-64 h-40 bg-artrix-red/20 blur-[80px] rounded-full animate-pulse"></div>
+                    
+                    <div class="relative z-20 bg-black rounded-[20px] p-2 border border-white/20 shadow-2xl animate-float" style="transform: rotateY(-20deg) rotateX(10deg);">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&auto=format&fit=crop&q=80" 
+                             alt="Construction project aerial view" 
+                             class="rounded-xl opacity-90 border border-white/10"
+                             loading="lazy">
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="font-serif text-2xl">NALANDA</div>
+                            <div class="text-xs font-mono text-artrix-red">Interactive Portfolio ></div>
+                        </div>
+                    </div>
+
+                    <div class="absolute -bottom-10 -left-10 z-10 w-64 p-4 bg-black/80 backdrop-blur border border-white/10 rounded-xl animate-float" style="animation-delay: 1s; transform: rotateY(-20deg);">
+                        <div class="flex gap-3 items-center mb-2">
+                            <div class="w-8 h-8 rounded-full bg-artrix-red flex items-center justify-center text-xs">3D</div>
+                            <div class="text-xs font-mono text-white">Virtual Tour Loading...</div>
+                        </div>
+                        <div class="h-1 w-full bg-white/20 rounded-full overflow-hidden">
+                            <div class="h-full w-2/3 bg-artrix-red"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 5: CLIENT OVERSIGHT PORTAL
+             ================================================================ -->
+        <div class="slide" data-index="5">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1506947411487-a56738267384?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Drone aerial surveillance view" 
+                     class="w-full h-full object-cover opacity-60 animate-pan-slow"
+                     loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50"></div>
+                <div class="absolute inset-0 line-grid"></div>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+                <div class="text-center mb-12 reveal reveal-1 bg-black/60 p-4 px-8 rounded-full border border-white/10 backdrop-blur">
+                    <h2 class="font-serif text-3xl text-white">CLIENT OVERSIGHT PORTAL</h2>
+                </div>
+
+                <p class="reveal reveal-1 text-center text-white/70 max-w-2xl mb-10 font-sans">
+                    A secure, private dashboard giving government stakeholders real-time visibility into project health.
+                </p>
+
+                <div class="grid grid-cols-3 gap-12 w-full max-w-7xl px-8 reveal reveal-2">
+                    
+                    <!-- Live Site Monitoring -->
+                    <div class="glass-hud p-6 relative group">
+                        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-artrix-red"></div>
+                        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-artrix-red"></div>
+                        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-artrix-red"></div>
+                        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-artrix-red"></div>
+                        
+                        <div class="flex justify-between text-xs font-mono text-cyan-300 mb-4">
+                            <span>SITE_CAM_04</span>
+                            <span class="animate-pulse text-red-500">● LIVE</span>
+                        </div>
+                        <div class="h-32 border border-white/10 bg-black/50 flex items-center justify-center relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800&auto=format&fit=crop&q=80" 
+                                 alt="Live construction feed" 
+                                 class="opacity-50 grayscale w-full h-full object-cover"
+                                 loading="lazy">
+                            <i class="ph ph-corners-out text-4xl text-white/50 absolute"></i>
+                        </div>
+                        <p class="text-sm text-white font-medium mt-4 text-center">Live Site Monitoring</p>
+                        <p class="text-xs text-white/50 text-center">Real-time drone feeds</p>
+                    </div>
+
+                    <!-- Compliance Tracker -->
+                    <div class="glass-hud p-6 flex flex-col justify-center items-center text-center">
+                        <div class="w-40 h-40 rounded-full border-4 border-white/10 flex items-center justify-center relative">
+                            <svg class="absolute inset-0 transform -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="283" stroke-dashoffset="10"></circle>
+                            </svg>
+                            <div>
+                                <div class="text-5xl font-serif text-white">100<span class="text-lg">%</span></div>
+                                <div class="text-[10px] font-mono text-white/50 uppercase mt-1">Compliant</div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-white font-medium mt-4">Compliance Tracker</p>
+                        <p class="text-xs text-white/50">Safety & environmental audits</p>
+                    </div>
+
+                    <!-- Secure Access -->
+                    <div class="glass-hud p-6">
+                        <div class="text-xs font-mono text-cyan-300 mb-4 border-b border-white/10 pb-2">SECURE ACCESS LOG</div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-xs text-white/70">
+                                <span>Minister_Office</span>
+                                <span class="text-green-400">Verified</span>
+                            </div>
+                            <div class="flex justify-between text-xs text-white/70">
+                                <span>Site_Director</span>
+                                <span class="text-green-400">Verified</span>
+                            </div>
+                            <div class="flex justify-between text-xs text-white/70">
+                                <span>External_Auditor</span>
+                                <span class="text-yellow-400">Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-white font-medium mt-4 text-center">Secure Access</p>
+                        <p class="text-xs text-white/50 text-center">Biometric/Encrypted login</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 6: ENGINEERING DOCUMENTATION
+             ================================================================ -->
+        <div class="slide" data-index="6">
+            <div class="absolute inset-0 bg-[#050505]"></div>
+            
+            <div class="absolute inset-0 flex flex-col justify-center px-16 pt-20 z-10">
+                <div class="mb-8 reveal reveal-1">
+                    <h2 class="font-serif text-5xl text-white">Engineering Documentation</h2>
+                    <p class="font-sans text-white/60 mt-3 max-w-lg">Moving beyond social media posts to produce high-value documentary assets that explain the complexity of your work.</p>
+                </div>
+
+                <div class="flex gap-6 overflow-hidden reveal reveal-2 h-[55vh]">
+                    <!-- Main Feature -->
+                    <div class="w-2/3 h-full relative group cursor-pointer border border-white/10 hover:border-artrix-red transition-colors video-card">
+                        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1600&auto=format&fit=crop&q=80" 
+                             alt="Artisan craftsman sculpting stone" 
+                             class="w-full h-full object-cover opacity-80"
+                             loading="lazy">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur rounded-full flex items-center justify-center border border-white/30 play-btn">
+                                <i class="ph ph-play-fill text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent">
+                            <div class="font-mono text-xs text-artrix-red mb-1">PROCESS SERIES</div>
+                            <div class="font-serif text-2xl text-white">How It's Built: Stone Masonry</div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar List -->
+                    <div class="w-1/3 flex flex-col gap-4 h-full">
+                        <div class="flex-1 relative group cursor-pointer border border-white/10 video-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1581093577421-f561a654a353?w=800&auto=format&fit=crop&q=80" 
+                                 alt="Engineering blueprints and drafting" 
+                                 class="w-full h-full object-cover opacity-60"
+                                 loading="lazy">
+                            <div class="absolute bottom-4 left-4">
+                                <div class="font-mono text-[10px] text-artrix-red">MILESTONE COVERAGE</div>
+                                <div class="font-serif text-lg text-white">Foundation Phase Complete</div>
+                            </div>
+                        </div>
+                        <div class="flex-1 relative group cursor-pointer border border-white/10 video-card overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&auto=format&fit=crop&q=80" 
+                                 alt="Foundation construction work" 
+                                 class="w-full h-full object-cover opacity-60"
+                                 loading="lazy">
+                            <div class="absolute bottom-4 left-4">
+                                <div class="font-mono text-[10px] text-artrix-red">PROCESS SERIES</div>
+                                <div class="font-serif text-lg text-white">Structural Engineering</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 7: GLOBAL PRODUCTION STANDARDS
+             ================================================================ -->
+        <div class="slide" data-index="7">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Professional film production equipment" 
+                     class="w-full h-full object-cover opacity-50 animate-pan-slow"
+                     loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+            </div>
+            
+            <div class="absolute inset-0 flex items-center px-16 z-10">
+                <div class="reveal reveal-1 max-w-4xl relative viewfinder">
+                    <!-- Viewfinder Corner Brackets -->
+                    <div class="absolute -inset-10 border-2 border-white/10 pointer-events-none">
+                        <div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-white"></div>
+                        <div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-white"></div>
+                        <div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-white"></div>
+                        <div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-white"></div>
+                        <div class="absolute top-4 left-1/2 -translate-x-1/2 text-[10px] font-mono text-white bg-black/50 px-2">REC [00:12:34]</div>
+                    </div>
+
+                    <h2 class="text-7xl font-serif text-white mb-6 relative z-10 drop-shadow-2xl">Global Production<br><span class="text-artrix-red">Standards.</span></h2>
+                    <p class="font-sans text-xl text-white/90 max-w-xl leading-relaxed mb-12 relative z-10 font-light">
+                        Utilizing cinema-grade equipment to ensure your projects look as impressive on screen as they do in reality.
+                    </p>
+                    
+                    <div class="flex gap-16 pt-8 relative z-10 bg-black/40 p-6 rounded-xl backdrop-blur-sm border border-white/10 inline-flex">
+                        <div class="text-center">
+                            <div class="font-serif text-4xl mb-1 text-artrix-red">4K</div>
+                            <div class="font-mono text-[10px] text-white/70 uppercase">Aerials</div>
+                            <div class="text-[9px] text-white/50">Drone Cinematography</div>
+                        </div>
+                        <div class="w-px h-16 bg-white/20"></div>
+                        <div class="text-center">
+                            <div class="font-serif text-4xl mb-1 text-artrix-red">DNG</div>
+                            <div class="font-mono text-[10px] text-white/70 uppercase">Color Grading</div>
+                            <div class="text-[9px] text-white/50">Cinema Profiles</div>
+                        </div>
+                        <div class="w-px h-16 bg-white/20"></div>
+                        <div class="text-center">
+                            <div class="font-serif text-4xl mb-1 text-artrix-red">PRO</div>
+                            <div class="font-mono text-[10px] text-white/70 uppercase">Sound Design</div>
+                            <div class="text-[9px] text-white/50">Audio Mastering</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 8: PRECISION MARKETING
+             ================================================================ -->
+        <div class="slide" data-index="8">
+            <div class="absolute inset-0 bg-[#0a0a0a]">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Digital world map" 
+                     class="w-full h-full object-cover opacity-40"
+                     loading="lazy">
+                <div class="absolute inset-0 bg-black/30"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)]"></div>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+                <div class="reveal reveal-1 bg-black/70 backdrop-blur-md border border-white/20 p-8 rounded-2xl max-w-2xl text-center mb-8">
+                    <h2 class="font-serif text-5xl mb-4 text-white">Precision Marketing</h2>
+                    <p class="font-sans text-white/80 leading-relaxed text-lg">
+                        Highly specific digital campaigns ensuring your brand reaches <span class="text-artrix-red font-bold">key decision-makers</span>, not just the general public.
+                    </p>
+                </div>
+
+                <div class="flex gap-24 reveal reveal-2">
+                    <!-- Geo-Fencing -->
+                    <div class="group relative flex flex-col items-center animate-float">
+                        <div class="w-16 h-16 rounded-full border-2 border-artrix-red bg-artrix-red/20 flex items-center justify-center relative">
+                            <div class="absolute inset-0 rounded-full bg-artrix-red/30 animate-ping"></div>
+                            <i class="ph ph-map-pin-area text-3xl text-white"></i>
+                        </div>
+                        <div class="mt-4 bg-black/80 px-5 py-3 rounded border border-white/20 text-center backdrop-blur">
+                            <div class="text-xs font-mono text-artrix-red">GEO-FENCING</div>
+                            <div class="text-base font-serif text-white">Ministry Districts</div>
+                            <div class="text-[10px] text-white/50 mt-1">Ads only within govt. zones</div>
+                        </div>
+                    </div>
+
+                    <!-- Search Leadership -->
+                    <div class="group relative flex flex-col items-center animate-float" style="animation-delay: 1s;">
+                        <div class="w-16 h-16 rounded-full border-2 border-white bg-white/10 flex items-center justify-center relative">
+                            <i class="ph ph-trophy text-3xl text-white"></i>
+                        </div>
+                        <div class="mt-4 bg-black/80 px-5 py-3 rounded border border-white/20 text-center backdrop-blur">
+                            <div class="text-xs font-mono text-white/70">SEARCH LEADERSHIP</div>
+                            <div class="text-base font-serif text-white">Rank #1</div>
+                            <div class="text-[10px] text-white/50 mt-1">"Museum Architecture"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 9: INDUSTRY LEADERSHIP
+             ================================================================ -->
+        <div class="slide" data-index="9">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Executive business meeting" 
+                     class="w-full h-full object-cover opacity-60 grayscale animate-pan-slow"
+                     loading="lazy">
+                <div class="absolute inset-0 bg-black/50"></div>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
+                <div class="reveal reveal-1 mb-8 p-6 bg-white/5 rounded-full backdrop-blur-sm border border-white/10">
+                    <i class="ph ph-crown text-6xl text-artrix-red"></i>
+                </div>
+                <h2 class="reveal reveal-2 font-serif text-7xl mb-6 text-white max-w-4xl leading-tight drop-shadow-2xl">Industry Leadership</h2>
+                <p class="reveal reveal-2 font-sans text-xl text-white/70 max-w-2xl mb-8">
+                    Transitioning from "Contractor" to "Industry Leader" by hosting exclusive think-tanks.
+                </p>
+                <div class="reveal reveal-3 max-w-2xl bg-black/30 backdrop-blur-sm px-10 py-8 rounded-xl border border-white/10">
+                    <div class="font-mono text-xs text-artrix-red tracking-widest mb-3">THE ARTRIX ROUNDTABLE</div>
+                    <p class="font-serif text-2xl text-white/90 leading-relaxed">
+                        Quarterly events on the future of infrastructure.<br>
+                        <span class="text-white/60 text-lg">Direct networking with policy-makers in a controlled environment.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 10: STAKEHOLDER MANAGEMENT
+             ================================================================ -->
+        <div class="slide" data-index="10">
+            <div class="absolute inset-0 bg-[#0a0a0a]">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#222,transparent_50%)]"></div>
+            </div>
+            
+            <div class="absolute inset-0 flex items-center justify-center gap-24 px-16 z-10">
+                 <!-- Visual Phone -->
+                 <div class="reveal reveal-1 phone-mockup">
+                     <div class="w-full h-full bg-[#050505] flex flex-col">
+                         <div class="bg-[#111] p-6 pt-12 flex items-center gap-4 border-b border-white/5">
+                             <div class="w-12 h-12 rounded-full bg-artrix-red flex items-center justify-center text-white font-serif text-xl">A</div>
+                             <div>
+                                 <div class="font-bold text-sm text-white">Artrix Assistant</div>
+                                 <div class="text-[10px] text-green-500 font-mono tracking-wider">● ONLINE 24/7</div>
+                             </div>
+                         </div>
+                         <div class="p-6 space-y-6 flex-1">
+                             <div class="bg-[#1a1a1a] p-4 rounded-2xl rounded-tl-none max-w-[90%] text-xs text-white/80 leading-relaxed border border-white/5">
+                                 Welcome, Minister. Here is the digital brochure for your upcoming Nalanda site visit.
+                             </div>
+                             <div class="bg-artrix-red/10 p-4 rounded-2xl rounded-tl-none max-w-[90%] text-xs text-white border border-artrix-red/30 flex gap-3 items-center hover:bg-artrix-red/20 transition-colors cursor-pointer">
+                                 <i class="ph ph-file-pdf text-2xl text-artrix-red"></i> 
+                                 <div>
+                                     <div class="font-bold">Nalanda_SiteVisit_Brief.pdf</div>
+                                     <div class="text-[10px] opacity-50">2.4 MB • Auto-generated</div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <!-- Content -->
+                 <div class="reveal reveal-2 max-w-lg">
+                     <h2 class="font-serif text-6xl mb-6 text-white">Stakeholder<br><span class="text-artrix-red">Management</span></h2>
+                     <p class="font-sans text-white/70 leading-relaxed mb-10 text-lg">
+                         Automated systems to handle official queries and site visit logistics instantly.
+                     </p>
+                     <ul class="space-y-6 font-mono text-xs">
+                        <li class="flex items-center gap-4 p-4 bg-white/5 rounded border border-white/10">
+                            <i class="ph ph-lightning text-3xl text-artrix-red"></i> 
+                            <div>
+                                <span class="tracking-[0.15em] text-white block">SMART AUTO-RESPONSE</span>
+                                <span class="text-white/50 text-[10px]">Instant replies to tender queries</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 p-4 bg-white/5 rounded border border-white/10">
+                            <i class="ph ph-whatsapp-logo text-3xl text-green-500"></i> 
+                            <div>
+                                <span class="tracking-[0.15em] text-white block">VISIT PROTOCOLS</span>
+                                <span class="text-white/50 text-[10px]">Auto brochures via WhatsApp</span>
+                            </div>
+                        </li>
+                     </ul>
+                 </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 11: DEPLOYMENT ROADMAP
+             ================================================================ -->
+        <div class="slide" data-index="11">
+            <div class="absolute inset-0 bg-black">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Business analytics dashboard" 
+                     class="w-full h-full object-cover opacity-20"
+                     loading="lazy">
+            </div>
+            
+            <div class="absolute inset-0 flex flex-col justify-center px-16 max-w-[1600px] mx-auto z-10">
+                <h2 class="reveal reveal-1 font-serif text-6xl mb-20 text-white border-b border-white/10 pb-8">Deployment Roadmap</h2>
+                
+                <div class="grid grid-cols-3 gap-12 reveal reveal-2">
+                    <div class="relative border-t border-white/20 pt-8 group hover:border-white/50 transition-colors">
+                        <div class="font-mono text-xs text-white/40 mb-6 tracking-widest">PHASE 01</div>
+                        <h3 class="font-serif text-4xl mb-4 text-white group-hover:text-artrix-red transition-colors">Asset Capture</h3>
+                        <ul class="space-y-3 text-sm text-white/60 font-sans">
+                            <li>• Brand Identity Development</li>
+                            <li>• 4K Site Documentation</li>
+                            <li>• Leadership Interviews</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="relative border-t-4 border-artrix-red pt-8 group bg-white/5 p-6 -mt-6 rounded-b-xl">
+                        <div class="font-mono text-xs text-artrix-red mb-6 tracking-widest">PHASE 02</div>
+                        <h3 class="font-serif text-4xl mb-4 text-white">Platform Launch</h3>
+                        <ul class="space-y-3 text-sm text-white/80 font-sans font-bold">
+                            <li>• Web Platform Live</li>
+                            <li>• Client Portal Beta</li>
+                            <li>• SEO Campaign Start</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative border-t border-white/20 pt-8 group hover:border-white/50 transition-colors">
+                        <div class="font-mono text-xs text-white/40 mb-6 tracking-widest">PHASE 03</div>
+                        <h3 class="font-serif text-4xl mb-4 text-white group-hover:text-artrix-red transition-colors">Scale & Lead</h3>
+                        <ul class="space-y-3 text-sm text-white/60 font-sans">
+                            <li>• First Roundtable Event</li>
+                            <li>• Industry Award Submissions</li>
+                            <li>• Expansion Operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 12: FULL-SERVICE INTEGRATION
+             ================================================================ -->
+        <div class="slide" data-index="12">
+            <div class="absolute inset-0 bg-[#050505] flex flex-col items-center justify-center p-8 z-10">
+                <div class="reveal reveal-1 mb-12 text-center">
+                    <h2 class="font-serif text-5xl text-white mb-2">Full-Service Integration</h2>
+                    <div class="w-12 h-1 bg-artrix-red mx-auto mt-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-5 w-full max-w-[1400px] reveal reveal-2">
+                    <!-- Digital Platform -->
+                    <div class="glass-card p-6 hover:bg-white/5 transition-colors group">
+                        <i class="ph ph-globe text-4xl text-artrix-red mb-6"></i>
+                        <h4 class="font-serif text-xl mb-2 text-white">Digital Platform</h4>
+                        <p class="text-xs font-mono text-white/60">Custom Web Development<br>Client Portal • Hosting</p>
+                    </div>
+                    
+                    <!-- Media Production -->
+                    <div class="glass-card p-6 hover:bg-white/5 transition-colors col-span-2 relative overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1200&auto=format&fit=crop&q=80" 
+                             alt="Cinematic film production" 
+                             class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                             loading="lazy">
+                        <div class="relative z-10 flex items-center h-full gap-6">
+                            <i class="ph ph-film-strip text-5xl text-white drop-shadow-lg"></i>
+                            <div>
+                                <h4 class="font-serif text-2xl mb-1 text-white drop-shadow-md">Media Production</h4>
+                                <p class="text-sm font-mono text-white/80">Monthly Drone Shoots • Site Documentation • Post-Production</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Growth Marketing -->
+                    <div class="glass-card p-6 hover:bg-white/5 transition-colors group">
+                        <i class="ph ph-chart-line-up text-4xl text-artrix-red mb-6"></i>
+                        <h4 class="font-serif text-xl mb-2 text-white">Growth Marketing</h4>
+                        <p class="text-xs font-mono text-white/60">SEO • LinkedIn Management<br>Geofenced Ad Campaigns</p>
+                    </div>
+
+                    <!-- Automation -->
+                    <div class="glass-card p-6 hover:bg-white/5 transition-colors group">
+                        <i class="ph ph-robot text-4xl text-white mb-6"></i>
+                        <h4 class="font-serif text-xl mb-2 text-white">Automation</h4>
+                        <p class="text-xs font-mono text-white/60">CRM Setup • Chatbots<br>Communication Workflows</p>
+                    </div>
+
+                    <!-- Strategic Advisory + Engagement Model -->
+                    <div class="bg-artrix-red p-6 flex flex-col justify-center text-center hover:bg-orange-600 transition-colors cursor-default">
+                        <i class="ph ph-compass text-3xl text-white/80 mb-3 mx-auto"></i>
+                        <h4 class="font-serif text-xl mb-1 text-white">Strategic Advisory</h4>
+                        <p class="text-xs font-mono text-white/70 mb-4">Brand Positioning • Event Consultation</p>
+                        <div class="border-t border-white/20 pt-3">
+                            <div class="font-mono text-[10px] text-black/60 uppercase tracking-widest font-bold">Engagement Model</div>
+                            <div class="font-serif text-lg text-white">Strategic Monthly Retainer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================
+             SLIDE 13: CLOSING
+             ================================================================ -->
+        <div class="slide" data-index="13">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=2000&auto=format&fit=crop&q=80" 
+                     alt="Mountain summit landscape" 
+                     class="w-full h-full object-cover opacity-60 animate-pan-slow grayscale"
+                     loading="lazy">
+                <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+            </div>
+
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
+                <div class="reveal reveal-1 mb-10">
+                    <i class="ph ph-handshake text-9xl text-artrix-red animate-pulse-glow"></i>
+                </div>
+                <h1 class="reveal reveal-2 font-serif text-8xl text-white mb-6">Let's Build.</h1>
+                <p class="reveal reveal-3 font-mono text-sm tracking-[0.3em] uppercase text-white/50 mb-16">Full-Service Integration. Strategic Partnership.</p>
+                
+                <div class="reveal reveal-4 flex items-center gap-8 text-white/30 font-serif text-5xl">
+                    <span class="text-white">VERO MEDIA</span>
+                    <span class="text-artrix-red font-light">×</span>
+                    <span class="text-white">ARTRIX</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Main JavaScript -->
+    <script type="module" src="/src/scripts/main.js"></script>
+    
+    <!-- Progress Bar Update -->
+    <script>
+        // Update progress bar on slide change
+        const updateProgress = () => {
+            const bar = document.getElementById('progress-bar');
+            const indicator = document.getElementById('slide-indicator');
+            if (bar && indicator) {
+                const observer = new MutationObserver(() => {
+                    const current = parseInt(indicator.textContent);
+                    const progress = (current / 13) * 100;
+                    bar.style.width = `${progress}%`;
+                });
+                observer.observe(indicator, { childList: true, characterData: true, subtree: true });
+            }
+        };
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>

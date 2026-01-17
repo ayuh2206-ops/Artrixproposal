@@ -1,0 +1,21 @@
+{
+  "name": "artrix-vero-slides",
+  "version": "1.0.0",
+  "description": "Artrix x Vero Media Strategic Alliance Presentation",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11",
+    "vite-plugin-html": "^3.2.2",
+    "terser": "^5.36.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

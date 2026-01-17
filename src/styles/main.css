@@ -1,0 +1,880 @@
+/* ==========================================================================
+   ARTRIX × VERO MEDIA - Strategic Alliance Presentation
+   ========================================================================== */
+
+/* Base Styles */
+:root {
+  --artrix-red: #ea580c;
+  --artrix-dark: #050505;
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(20, 20, 20, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--artrix-dark);
+  color: white;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Slide System
+   ========================================================================== */
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: 
+    opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.05);
+  filter: blur(8px);
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 10;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* ==========================================================================
+   Glass Morphism
+   ========================================================================== */
+
+.glass-card {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.glass-hud {
+  background: rgba(0, 20, 40, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(100, 200, 255, 0.2);
+}
+
+/* ==========================================================================
+   Reveal Animations
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide.active .reveal-1 {
+  transition-delay: 0.1s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.active .reveal-2 {
+  transition-delay: 0.2s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.active .reveal-3 {
+  transition-delay: 0.3s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.active .reveal-4 {
+  transition-delay: 0.4s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.active .reveal-5 {
+  transition-delay: 0.5s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Keyframe Animations
+   ========================================================================== */
+
+@keyframes pan {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-2%, -2%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(234, 88, 12, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(234, 88, 12, 0.2);
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pan-slow {
+  animation: pan 60s infinite alternate linear;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite;
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ==========================================================================
+   Text Effects
+   ========================================================================== */
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+
+/* ==========================================================================
+   Background Effects
+   ========================================================================== */
+
+.bg-gradient-fade {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.dot-grid {
+  background-image: radial-gradient(#555 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.line-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
+}
+
+/* ==========================================================================
+   Navigation Controls
+   ========================================================================== */
+
+.nav-controls {
+  z-index: 100;
+}
+
+.nav-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: white;
+  color: black;
+}
+
+.nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================================================
+   Interactive Elements
+   ========================================================================== */
+
+.pillar {
+  transition: all 0.4s ease;
+}
+
+.pillar:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pillar .progress-bar {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease;
+}
+
+.pillar:hover .progress-bar {
+  transform: scaleX(1);
+}
+
+/* Video Card */
+.video-card {
+  transition: all 0.4s ease;
+}
+
+.video-card:hover {
+  border-color: var(--artrix-red);
+}
+
+.video-card:hover img {
+  opacity: 1;
+}
+
+.video-card .play-btn {
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover .play-btn {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   HUD Corner Brackets
+   ========================================================================== */
+
+.hud-corners {
+  position: relative;
+}
+
+.hud-corners::before,
+.hud-corners::after,
+.hud-corners .corner-bl,
+.hud-corners .corner-br {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-color: var(--artrix-red);
+}
+
+.hud-corners::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.hud-corners::after {
+  top: 0;
+  right: 0;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+/* ==========================================================================
+   Viewfinder Overlay
+   ========================================================================== */
+
+.viewfinder {
+  position: relative;
+}
+
+.viewfinder::before {
+  content: '';
+  position: absolute;
+  inset: -2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Phone Mockup
+   ========================================================================== */
+
+.phone-mockup {
+  width: 320px;
+  height: 650px;
+  border: 8px solid #333;
+  border-radius: 3rem;
+  background: black;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: rotate(-5deg);
+  transition: transform 1.5s ease;
+}
+
+.phone-mockup:hover {
+  transform: rotate(0deg);
+}
+
+/* ==========================================================================
+   Responsive Adjustments - Mobile First (Samsung S25 Ultra & All Devices)
+   ========================================================================== */
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+  .slide-content {
+    padding: 2rem;
+  }
+  
+  .hero-text {
+    font-size: 8vw;
+  }
+
+  .phone-mockup {
+    width: 240px;
+    height: 500px;
+  }
+}
+
+/* Tablet Portrait & Large Phones */
+@media (max-width: 768px) {
+  /* Navigation */
+  .nav-controls.fixed.top-8.left-8 {
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  .nav-controls.fixed.bottom-8.left-8 {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  
+  .nav-controls.fixed.bottom-8.right-8 {
+    bottom: 1rem;
+    right: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .nav-controls.fixed.bottom-8.right-8 button {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  /* Pillars - Stack vertically */
+  .pillar-container,
+  .flex.justify-center.gap-8.items-end {
+    flex-direction: column !important;
+    height: auto !important;
+    gap: 1rem !important;
+  }
+  
+  .pillar-container > div,
+  .flex.justify-center.gap-8.items-end > div {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px;
+  }
+
+  /* Grid adjustments */
+  .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .col-span-2 {
+    grid-column: span 1 !important;
+  }
+
+  /* Phone mockup */
+  .phone-mockup {
+    width: 200px;
+    height: 420px;
+    transform: rotate(0deg) !important;
+  }
+
+  /* Viewfinder hide on mobile */
+  .viewfinder::before,
+  .viewfinder > div:first-child {
+    display: none;
+  }
+
+  /* Float animation reduce */
+  .animate-float {
+    animation: none;
+  }
+}
+
+/* Mobile - Samsung S25 Ultra (412px), iPhone Pro Max, etc */
+@media (max-width: 480px) {
+  /* Base adjustments */
+  html {
+    font-size: 14px;
+  }
+
+  /* Navigation - compact */
+  .nav-controls.fixed.top-8.left-8 {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+  
+  .nav-controls.fixed.top-8.left-8 .font-serif {
+    font-size: 0.7rem !important;
+  }
+  
+  .nav-controls.fixed.top-8.left-8 .font-mono {
+    font-size: 8px !important;
+  }
+  
+  .nav-controls.fixed.bottom-8.left-8 {
+    bottom: 0.75rem;
+    left: 0.75rem;
+  }
+  
+  .nav-controls.fixed.bottom-8.left-8 .font-serif {
+    font-size: 1.25rem !important;
+  }
+  
+  .nav-controls.fixed.bottom-8.right-8 {
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+  
+  .nav-controls.fixed.bottom-8.right-8 button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  /* Slide content padding */
+  .slide .px-16 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .slide .px-24 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Typography scaling */
+  .text-\[10vw\], .text-\[12vw\] {
+    font-size: 12vw !important;
+    line-height: 1 !important;
+  }
+  
+  .text-\[8vw\] {
+    font-size: 10vw !important;
+  }
+  
+  .text-8xl {
+    font-size: 2.5rem !important;
+  }
+  
+  .text-7xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-6xl {
+    font-size: 1.75rem !important;
+  }
+  
+  .text-5xl {
+    font-size: 1.5rem !important;
+  }
+  
+  .text-4xl {
+    font-size: 1.25rem !important;
+  }
+  
+  .text-3xl {
+    font-size: 1.1rem !important;
+  }
+  
+  .text-2xl {
+    font-size: 1rem !important;
+  }
+  
+  .text-xl {
+    font-size: 0.95rem !important;
+  }
+
+  /* Margin/padding adjustments */
+  .ml-16, .ml-24, .ml-32 {
+    margin-left: 0 !important;
+  }
+  
+  .mb-16, .mb-20 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .mt-12 {
+    margin-top: 1.5rem !important;
+  }
+  
+  .pt-20 {
+    padding-top: 4rem !important;
+  }
+  
+  .gap-24 {
+    gap: 2rem !important;
+  }
+  
+  .gap-16 {
+    gap: 1rem !important;
+  }
+  
+  .gap-12 {
+    gap: 1rem !important;
+  }
+  
+  .gap-8 {
+    gap: 0.75rem !important;
+  }
+
+  /* Flex layouts - stack */
+  .flex.items-center.justify-between {
+    flex-direction: column !important;
+    gap: 2rem;
+  }
+  
+  .flex.items-center.justify-center.gap-24 {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  /* Width adjustments */
+  .w-1\/3, .w-1\/2, .w-2\/3 {
+    width: 100% !important;
+  }
+  
+  .max-w-lg, .max-w-xl, .max-w-2xl, .max-w-4xl {
+    max-width: 100% !important;
+  }
+
+  /* Slide 2 - Portal */
+  .w-\[60vw\] {
+    width: 90vw !important;
+  }
+  
+  .h-\[70vh\] {
+    height: 50vh !important;
+  }
+
+  /* Slide 3 - Pillars */
+  .h-\[50vh\] {
+    height: auto !important;
+    min-height: 60vh;
+  }
+  
+  .h-\[80\%\], .h-\[100\%\] {
+    height: auto !important;
+    min-height: 180px;
+  }
+
+  /* Slide 5 - HUD widgets */
+  .glass-hud {
+    padding: 1rem !important;
+  }
+  
+  .glass-hud .w-40 {
+    width: 100px !important;
+  }
+  
+  .glass-hud .h-40 {
+    height: 100px !important;
+  }
+  
+  .glass-hud .text-5xl {
+    font-size: 1.5rem !important;
+  }
+
+  /* Slide 6 - Video cards */
+  .h-\[55vh\] {
+    height: auto !important;
+    flex-direction: column !important;
+  }
+  
+  .h-\[55vh\] > div {
+    width: 100% !important;
+    height: 200px !important;
+  }
+  
+  .h-\[55vh\] .flex-col {
+    flex-direction: row !important;
+    height: auto !important;
+  }
+  
+  .h-\[55vh\] .flex-col > div {
+    flex: 1;
+    height: 150px !important;
+  }
+
+  /* Slide 7 - Viewfinder */
+  .viewfinder .absolute.-inset-10 {
+    display: none;
+  }
+
+  /* Slide 8 - Floating pins */
+  .flex.gap-24.reveal {
+    flex-direction: row !important;
+    gap: 1.5rem !important;
+  }
+  
+  .w-16.h-16 {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+  
+  .w-16.h-16 i {
+    font-size: 1.25rem !important;
+  }
+
+  /* Slide 10 - Phone mockup */
+  .phone-mockup {
+    width: 180px;
+    height: 380px;
+    border-width: 5px;
+    border-radius: 1.5rem;
+  }
+  
+  .phone-mockup .pt-12 {
+    padding-top: 2rem !important;
+  }
+  
+  .phone-mockup .w-12.h-12 {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  /* Slide 12 - Service cards */
+  .glass-card {
+    padding: 1rem !important;
+  }
+  
+  .glass-card i {
+    font-size: 2rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Slide 13 - Closing */
+  .text-9xl {
+    font-size: 4rem !important;
+  }
+
+  /* Icons */
+  .text-6xl.ph, i.text-6xl {
+    font-size: 2.5rem !important;
+  }
+  
+  .text-5xl.ph, i.text-5xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-4xl.ph, i.text-4xl {
+    font-size: 1.5rem !important;
+  }
+
+  /* Hide decorative elements on mobile */
+  .absolute.-bottom-10.-left-10 {
+    display: none;
+  }
+  
+  .blur-\[80px\] {
+    display: none;
+  }
+
+  /* Bottom text boxes repositioning */
+  .absolute.left-12.bottom-12,
+  .absolute.right-12.top-24,
+  .absolute.right-12.top-12 {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0.5rem 1rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Overflow handling */
+  .slide {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Stats row */
+  .inline-flex.gap-16 {
+    flex-wrap: wrap;
+    gap: 1rem !important;
+    justify-content: center;
+  }
+  
+  .inline-flex .w-px {
+    display: none;
+  }
+}
+
+/* Small phones (iPhone SE, older devices) */
+@media (max-width: 375px) {
+  html {
+    font-size: 13px;
+  }
+  
+  .text-\[10vw\], .text-\[12vw\] {
+    font-size: 14vw !important;
+  }
+  
+  .phone-mockup {
+    width: 160px;
+    height: 340px;
+  }
+}
+
+/* Landscape mode on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .slide {
+    overflow-y: auto;
+  }
+  
+  .text-8xl, .text-7xl {
+    font-size: 2rem !important;
+  }
+  
+  .phone-mockup {
+    height: 280px;
+    width: 140px;
+  }
+  
+  .h-\[70vh\], .h-\[55vh\], .h-\[50vh\] {
+    height: auto !important;
+    min-height: 200px;
+  }
+}
+
+/* ==========================================================================
+   Image Optimization
+   ========================================================================== */
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Lazy loading placeholder */
+img[loading="lazy"] {
+  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-y-20 {
+  transform: rotateY(-20deg) rotateX(10deg);
+}
+
+.mix-blend-overlay {
+  mix-blend-mode: overlay;
+}
+
+.mix-blend-hard-light {
+  mix-blend-mode: hard-light;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+/* Selection */
+::selection {
+  background: var(--artrix-red);
+  color: white;
+}
+
+/* Scrollbar (hidden) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   Mobile Touch & Safe Area Support
+   ========================================================================== */
+
+/* Safe area for notched phones */
+@supports (padding: env(safe-area-inset-top)) {
+  .nav-controls.fixed.top-8 {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .nav-controls.fixed.bottom-8 {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Touch action for smoother swiping */
+main, .slide {
+  touch-action: pan-x pan-y;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Prevent pull-to-refresh on mobile */
+body {
+  overscroll-behavior: none;
+}
+
+/* Tap highlight removal */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
