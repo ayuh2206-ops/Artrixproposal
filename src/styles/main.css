@@ -748,6 +748,128 @@ body {
   .inline-flex .w-px {
     display: none;
   }
+
+  /* ==========================================================================
+     SPECIFIC SLIDE FIXES FOR MOBILE
+     ========================================================================== */
+
+  /* Slide 2-5: Fix header overlap - add scroll and padding */
+  .slide[data-index="2"],
+  .slide[data-index="3"],
+  .slide[data-index="4"],
+  .slide[data-index="5"] {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slide[data-index="2"] .absolute.inset-0.flex,
+  .slide[data-index="3"] .absolute.inset-0.flex,
+  .slide[data-index="4"] .absolute.inset-0.flex,
+  .slide[data-index="5"] .absolute.inset-0.flex {
+    position: relative !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+    min-height: 100vh;
+    align-items: flex-start !important;
+  }
+
+  /* Slide 2: Portal layout fix */
+  .slide[data-index="2"] .w-\[60vw\] {
+    width: 95% !important;
+    height: auto !important;
+    min-height: 40vh;
+    margin: 1rem auto;
+  }
+
+  .slide[data-index="2"] .absolute.left-12,
+  .slide[data-index="2"] .absolute.right-12 {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 1rem !important;
+    max-width: calc(100% - 2rem) !important;
+  }
+
+  /* Slide 3: Service framework - better stacking */
+  .slide[data-index="3"] .flex.justify-center.gap-8.items-end {
+    padding-top: 1rem;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    height: auto !important;
+  }
+
+  .slide[data-index="3"] .flex.justify-center.gap-8.items-end > div {
+    height: auto !important;
+    min-height: 180px;
+    padding: 1.5rem !important;
+  }
+
+  /* Slide 8: Full background image and brighter */
+  .slide[data-index="8"] {
+    overflow: hidden !important;
+  }
+
+  .slide[data-index="8"] > div:first-child {
+    position: absolute !important;
+    inset: 0 !important;
+  }
+
+  .slide[data-index="8"] > div:first-child img {
+    opacity: 0.65 !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Reduce dark overlays on mobile for brighter image */
+  .slide[data-index="8"] > div:first-child > div:nth-child(2) {
+    background: rgba(0,0,0,0.15) !important;
+  }
+
+  .slide[data-index="8"] > div:first-child > div:nth-child(3) {
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%) !important;
+  }
+
+  .slide[data-index="8"] .absolute.inset-0.flex {
+    position: relative !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    min-height: 100vh;
+    justify-content: center !important;
+  }
+
+  .slide[data-index="8"] .bg-black\/70 {
+    margin-top: 2rem;
+  }
+
+  /* Slide 11: Phase cards overlap fix */
+  .slide[data-index="11"] {
+    overflow-y: auto !important;
+  }
+
+  .slide[data-index="11"] .grid-cols-3 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .slide[data-index="11"] .grid-cols-3 > div {
+    margin-top: 0 !important;
+    padding: 1.5rem !important;
+    border-radius: 0.5rem;
+  }
+
+  /* Phase 2 highlight box fix */
+  .slide[data-index="11"] .grid-cols-3 > div:nth-child(2) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .slide[data-index="11"] .grid-cols-3 > div.-mt-6 {
+    margin-top: 0 !important;
+  }
 }
 
 /* Small phones (iPhone SE, older devices) */
@@ -877,4 +999,53 @@ body {
 /* Tap highlight removal */
 * {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================================================================
+   Desktop Safeguards (ensure no mobile styles leak to desktop)
+   ========================================================================== */
+
+@media (min-width: 769px) {
+  /* Reset slide positioning for desktop */
+  .slide .absolute.inset-0.flex {
+    position: absolute !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    align-items: center !important;
+  }
+
+  /* Slide 2: Portal stays centered on desktop */
+  .slide[data-index="2"] .w-\[60vw\] {
+    width: 60vw !important;
+    height: 70vh !important;
+  }
+
+  /* Slide 3: Pillars horizontal on desktop */
+  .slide[data-index="3"] .flex.justify-center.gap-8.items-end {
+    flex-direction: row !important;
+    align-items: flex-end !important;
+  }
+
+  /* Slide 8: Keep original styling on desktop */
+  .slide[data-index="8"] > div:first-child img {
+    opacity: 0.4 !important;
+  }
+
+  .slide[data-index="8"] > div:first-child > div:nth-child(2) {
+    background: rgba(0,0,0,0.3) !important;
+  }
+
+  .slide[data-index="8"] > div:first-child > div:nth-child(3) {
+    background: radial-gradient(circle at center, transparent 0%, #000 100%) !important;
+  }
+
+  /* Slide 11: Grid layout on desktop */
+  .slide[data-index="11"] .grid-cols-3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .slide[data-index="11"] .grid-cols-3 > div:nth-child(2) {
+    margin-top: -1.5rem !important;
+  }
 }
