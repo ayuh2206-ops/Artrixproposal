@@ -21,16 +21,22 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Tailwind Config -->
+    <!-- Tailwind Config - The Dark Atelier -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'artrix-red': '#ea580c',
-                        'artrix-dark': '#050505',
-                        'glass-border': 'rgba(255, 255, 255, 0.15)',
-                        'glass-bg': 'rgba(20, 20, 20, 0.4)',
+                        // The Dark Atelier Palette
+                        'artrix-red': '#a65d3f',      // Burnt Ochre / Clay
+                        'artrix-ochre': '#a65d3f',    // Burnt Ochre
+                        'artrix-clay': '#8b4c35',     // Deeper Clay
+                        'artrix-dark': '#0f0f0f',     // Rich Charcoal
+                        'artrix-graphite': '#1a1a1a', // Graphite
+                        'artrix-cream': '#f5f0e8',    // Off-White Cream
+                        'artrix-paper': '#e8e3da',    // Aged Paper
+                        'glass-border': 'rgba(245, 240, 232, 0.12)',
+                        'glass-bg': 'rgba(15, 15, 15, 0.6)',
                     },
                     fontFamily: {
                         serif: ['"Cinzel"', 'serif'],
@@ -50,11 +56,11 @@
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
+                            '50%': { transform: 'translateY(-15px)' },
                         },
                         pulseGlow: {
-                            '0%, 100%': { opacity: '1', boxShadow: '0 0 20px rgba(234, 88, 12, 0.5)' },
-                            '50%': { opacity: '0.8', boxShadow: '0 0 10px rgba(234, 88, 12, 0.2)' },
+                            '0%, 100%': { opacity: '1', boxShadow: '0 0 15px rgba(166, 93, 63, 0.4)' },
+                            '50%': { opacity: '0.85', boxShadow: '0 0 8px rgba(166, 93, 63, 0.2)' },
                         }
                     }
                 }
