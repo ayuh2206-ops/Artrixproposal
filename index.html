@@ -27,16 +27,17 @@
             theme: {
                 extend: {
                     colors: {
-                        // The Dark Atelier Palette
-                        'artrix-red': '#a65d3f',      // Burnt Ochre / Clay
-                        'artrix-ochre': '#a65d3f',    // Burnt Ochre
+                        // The Dark Atelier Palette - Warm, Crafted, Architectural
+                        'artrix-red': '#b8694a',      // Burnt Ochre (replaces neon orange)
+                        'artrix-ochre': '#b8694a',    // Burnt Ochre
                         'artrix-clay': '#8b4c35',     // Deeper Clay
-                        'artrix-dark': '#0f0f0f',     // Rich Charcoal
-                        'artrix-graphite': '#1a1a1a', // Graphite
-                        'artrix-cream': '#f5f0e8',    // Off-White Cream
-                        'artrix-paper': '#e8e3da',    // Aged Paper
-                        'glass-border': 'rgba(245, 240, 232, 0.12)',
-                        'glass-bg': 'rgba(15, 15, 15, 0.6)',
+                        'artrix-terracotta': '#c97856', // Terracotta
+                        'artrix-dark': '#121210',     // Warm Charcoal
+                        'artrix-graphite': '#1c1b19', // Warm Graphite
+                        'artrix-cream': '#f0e9df',    // Off-White Cream
+                        'artrix-paper': '#d9d0c3',    // Aged Paper
+                        'glass-border': 'rgba(184, 105, 74, 0.2)',
+                        'glass-bg': 'rgba(18, 18, 16, 0.92)',
                     },
                     fontFamily: {
                         serif: ['"Cinzel"', 'serif'],
@@ -44,23 +45,23 @@
                         mono: ['"Space Mono"', 'monospace'],
                     },
                     animation: {
-                        'pan-slow': 'pan 60s infinite alternate linear',
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 3s infinite',
-                        'spin-slow': 'spin 20s linear infinite',
+                        'pan-slow': 'pan 80s infinite alternate linear',
+                        'float': 'float 8s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 5s infinite',
+                        'spin-slow': 'spin 25s linear infinite',
                     },
                     keyframes: {
                         pan: {
                             '0%': { transform: 'scale(1) translate(0, 0)' },
-                            '100%': { transform: 'scale(1.1) translate(-2%, -2%)' },
+                            '100%': { transform: 'scale(1.06) translate(-1%, -1%)' },
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         },
                         pulseGlow: {
-                            '0%, 100%': { opacity: '1', boxShadow: '0 0 15px rgba(166, 93, 63, 0.4)' },
-                            '50%': { opacity: '0.85', boxShadow: '0 0 8px rgba(166, 93, 63, 0.2)' },
+                            '0%, 100%': { opacity: '1', boxShadow: '0 0 12px rgba(184, 105, 74, 0.3)' },
+                            '50%': { opacity: '0.9', boxShadow: '0 0 6px rgba(184, 105, 74, 0.15)' },
                         }
                     }
                 }
@@ -71,35 +72,35 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="/src/styles/main.css">
 </head>
-<body class="antialiased bg-artrix-dark text-white overflow-hidden">
+<body class="antialiased bg-artrix-dark text-artrix-cream overflow-hidden">
 
     <!-- Top Navigation Overlay -->
-    <div class="nav-controls fixed top-8 left-8 mix-blend-difference pointer-events-none z-[200]">
-        <div class="text-artrix-red font-mono text-[10px] tracking-[0.4em] uppercase mb-1">Strategic Proposal</div>
-        <div class="text-white font-serif text-sm tracking-widest font-bold">ARTRIX × VERO MEDIA</div>
+    <div class="nav-controls fixed top-8 left-8 pointer-events-none z-[200]">
+        <div class="text-artrix-ochre font-mono text-[10px] tracking-[0.5em] uppercase mb-1 italic">Strategic Proposal</div>
+        <div class="text-artrix-cream font-serif text-sm tracking-[0.2em] font-medium">ARTRIX × VERO MEDIA</div>
     </div>
 
     <!-- Slide Indicator -->
-    <div class="nav-controls fixed bottom-8 left-8 mix-blend-difference pointer-events-none">
-        <div class="text-white font-serif text-2xl font-bold" id="slide-indicator">01<span class="text-sm opacity-50 font-normal mx-2">/</span>13</div>
+    <div class="nav-controls fixed bottom-8 left-8 pointer-events-none">
+        <div class="text-artrix-cream font-serif text-2xl font-medium" id="slide-indicator">01<span class="text-sm opacity-40 font-normal mx-2">/</span>13</div>
     </div>
 
-    <!-- Navigation Buttons -->
+    <!-- Navigation Buttons - Tactile/Sketched Style -->
     <div class="nav-controls fixed bottom-8 right-8 flex gap-4 pointer-events-auto z-[200]">
-        <button id="btn-prev" class="w-14 h-14 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer group active:scale-95 opacity-30 pointer-events-none">
-            <i class="ph ph-arrow-left text-xl"></i>
+        <button id="btn-prev" class="w-14 h-14 rounded-full border-2 border-dashed border-artrix-ochre bg-artrix-dark flex items-center justify-center hover:bg-artrix-ochre hover:border-solid transition-all cursor-pointer group active:scale-95 opacity-30 pointer-events-none">
+            <i class="ph ph-arrow-left text-xl text-artrix-cream group-hover:text-artrix-dark"></i>
         </button>
-        <button id="btn-next" class="w-14 h-14 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer group active:scale-95">
-            <i class="ph ph-arrow-right text-xl"></i>
+        <button id="btn-next" class="w-14 h-14 rounded-full border-2 border-dashed border-artrix-ochre bg-artrix-dark flex items-center justify-center hover:bg-artrix-ochre hover:border-solid transition-all cursor-pointer group active:scale-95">
+            <i class="ph ph-arrow-right text-xl text-artrix-cream group-hover:text-artrix-dark"></i>
         </button>
     </div>
 
-    <!-- Progress Bar -->
-    <div class="fixed top-0 left-0 w-full h-1 bg-white/10 z-[200]">
-        <div id="progress-bar" class="h-full bg-artrix-red transition-all duration-500" style="width: 7.69%"></div>
+    <!-- Progress Bar - Ochre -->
+    <div class="fixed top-0 left-0 w-full h-[2px] bg-artrix-cream/10 z-[200]">
+        <div id="progress-bar" class="h-full bg-artrix-ochre transition-all duration-500" style="width: 7.69%"></div>
     </div>
 
-    <main class="relative w-full h-screen bg-black">
+    <main class="relative w-full h-screen bg-artrix-dark">
 
         <!-- ================================================================
              SLIDE 1: TITLE - Strategic Digital Transformation
