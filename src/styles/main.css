@@ -1,26 +1,13 @@
 /* ==========================================================================
    ARTRIX × VERO MEDIA - Strategic Alliance Presentation
-   THE DARK ATELIER - Architectural Craft Aesthetic
    ========================================================================== */
 
-/* Base Styles - The Dark Atelier Palette */
+/* Base Styles */
 :root {
-  --artrix-ochre: #b8694a;       /* Burnt Ochre - Primary Accent */
-  --artrix-clay: #8b4c35;        /* Deeper Clay */
-  --artrix-terracotta: #c97856;  /* Terracotta highlight */
-  --artrix-dark: #121210;        /* Warm Charcoal */
-  --artrix-graphite: #1c1b19;    /* Warm Graphite */
-  --artrix-cream: #f0e9df;       /* Off-White Cream */
-  --artrix-paper: #d9d0c3;       /* Aged Paper */
-  --artrix-ink: #2a2825;         /* Dark Ink */
-  --border-subtle: rgba(240, 233, 223, 0.08);
-  --border-medium: rgba(240, 233, 223, 0.15);
-  --border-strong: rgba(184, 105, 74, 0.4);
-  
-  /* Legacy support - redirect to ochre */
-  --artrix-red: var(--artrix-ochre);
-  --glass-border: var(--border-medium);
-  --glass-bg: rgba(18, 18, 16, 0.9);
+  --artrix-red: #ea580c;
+  --artrix-dark: #050505;
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(20, 20, 20, 0.4);
 }
 
 * {
@@ -30,106 +17,12 @@
 }
 
 body {
-  background-color: var(--artrix-dark) !important;
-  color: var(--artrix-cream) !important;
+  background-color: var(--artrix-dark);
+  color: white;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0.02em;
-}
-
-/* ==========================================================================
-   The Canvas - Visible Grainy Texture with Blueprint Grid
-   ========================================================================== */
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.06;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: overlay;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: 
-    /* Blueprint dashed grid - horizontal */
-    repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 39px,
-      rgba(184, 105, 74, 0.06) 39px,
-      rgba(184, 105, 74, 0.06) 40px
-    ),
-    /* Blueprint dashed grid - vertical */
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 39px,
-      rgba(184, 105, 74, 0.06) 39px,
-      rgba(184, 105, 74, 0.06) 40px
-    );
-  pointer-events: none;
-  z-index: 9998;
-}
-
-main {
-  position: relative;
-  z-index: 10;
-  background: var(--artrix-dark) !important;
-}
-
-/* ==========================================================================
-   FORCE COLOR OVERRIDES - Override all Tailwind colors
-   ========================================================================== */
-
-/* Force all white text to cream */
-.text-white,
-[class*="text-white"] {
-  color: var(--artrix-cream) !important;
-}
-
-/* Force all artrix-red/orange to ochre */
-.text-artrix-red,
-[class*="text-artrix-red"],
-.text-orange-500,
-.text-orange-600 {
-  color: var(--artrix-ochre) !important;
-}
-
-.bg-artrix-red,
-[class*="bg-artrix-red"],
-.bg-orange-500,
-.bg-orange-600 {
-  background-color: var(--artrix-ochre) !important;
-}
-
-.border-artrix-red,
-[class*="border-artrix-red"] {
-  border-color: var(--artrix-ochre) !important;
-}
-
-/* Force backgrounds to warm charcoal */
-.bg-black,
-[class*="bg-black"],
-.bg-\[\#050505\],
-.bg-\[\#080808\],
-.bg-\[\#0a0a0a\] {
-  background-color: var(--artrix-dark) !important;
-}
-
-/* Soften pure black backgrounds */
-.bg-black\/60,
-.bg-black\/50,
-.bg-black\/40,
-.bg-black\/30 {
-  background-color: rgba(18, 18, 16, 0.75) !important;
 }
 
 /* ==========================================================================
@@ -143,11 +36,11 @@ main {
   pointer-events: none;
   z-index: 0;
   transition: 
-    opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 1.4s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: scale(1.01);
-  filter: blur(3px);
+    opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.05);
+  filter: blur(8px);
 }
 
 .slide.active {
@@ -159,94 +52,22 @@ main {
 }
 
 /* ==========================================================================
-   ALL IMAGES - Strong Sepia/Warm Filter + Frames
-   ========================================================================== */
-
-.slide img {
-  filter: sepia(0.25) saturate(0.85) brightness(0.88) contrast(1.05) !important;
-  transition: filter 0.6s ease !important;
-}
-
-.slide img:hover {
-  filter: sepia(0.15) saturate(0.95) brightness(0.92) contrast(1.02) !important;
-}
-
-/* Grayscale images get warm brownish tint */
-.grayscale,
-img.grayscale {
-  filter: grayscale(1) sepia(0.35) brightness(0.85) contrast(1.1) !important;
-}
-
-/* ==========================================================================
-   Wireframe Cards - NO Glassmorphism, Pure Outline Aesthetic
+   Glass Morphism
    ========================================================================== */
 
 .glass-card {
-  background: rgba(18, 18, 16, 0.92) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: 1px solid var(--border-medium) !important;
-  box-shadow: none !important;
-  position: relative;
-}
-
-/* Visible Crop Marks on cards */
-.glass-card::before {
-  content: '+';
-  position: absolute;
-  top: -14px;
-  left: -7px;
-  font-family: 'Space Mono', monospace;
-  font-size: 14px;
-  color: var(--artrix-ochre);
-  opacity: 0.7;
-  line-height: 1;
-}
-
-.glass-card::after {
-  content: '+';
-  position: absolute;
-  bottom: -14px;
-  right: -7px;
-  font-family: 'Space Mono', monospace;
-  font-size: 14px;
-  color: var(--artrix-ochre);
-  opacity: 0.7;
-  line-height: 1;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .glass-hud {
-  background: rgba(18, 18, 16, 0.95) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: 1px solid var(--artrix-ochre) !important;
-  border-style: dashed !important;
-  position: relative;
-}
-
-/* Corner L-brackets on HUD cards */
-.glass-hud::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-top: 2px solid var(--artrix-ochre);
-  border-left: 2px solid var(--artrix-ochre);
-  pointer-events: none;
-}
-
-.glass-hud::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  border-bottom: 2px solid var(--artrix-ochre);
-  border-right: 2px solid var(--artrix-ochre);
-  pointer-events: none;
+  background: rgba(0, 20, 40, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(100, 200, 255, 0.2);
 }
 
 /* ==========================================================================
@@ -290,7 +111,7 @@ img.grayscale {
 }
 
 /* ==========================================================================
-   Keyframe Animations - Softer, More Craft-like
+   Keyframe Animations
    ========================================================================== */
 
 @keyframes pan {
@@ -298,7 +119,7 @@ img.grayscale {
     transform: scale(1) translate(0, 0);
   }
   100% {
-    transform: scale(1.08) translate(-1.5%, -1.5%);
+    transform: scale(1.1) translate(-2%, -2%);
   }
 }
 
@@ -307,261 +128,160 @@ img.grayscale {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-20px);
   }
 }
 
 @keyframes pulseGlow {
   0%, 100% {
     opacity: 1;
-    box-shadow: 0 0 15px rgba(166, 93, 63, 0.35);
+    box-shadow: 0 0 20px rgba(234, 88, 12, 0.5);
   }
   50% {
-    opacity: 0.85;
-    box-shadow: 0 0 8px rgba(166, 93, 63, 0.15);
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(234, 88, 12, 0.2);
   }
 }
 
 @keyframes ping {
   75%, 100% {
-    transform: scale(1.8);
+    transform: scale(2);
     opacity: 0;
   }
 }
 
 @keyframes pulse {
   50% {
-    opacity: .6;
+    opacity: .5;
   }
 }
 
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.92; }
-}
-
 .animate-pan-slow {
-  animation: pan 70s infinite alternate linear;
+  animation: pan 60s infinite alternate linear;
 }
 
 .animate-float {
-  animation: float 7s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulseGlow 4s infinite;
+  animation: pulseGlow 3s infinite;
 }
 
 .animate-ping {
-  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .animate-pulse {
-  animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* ==========================================================================
-   Text Effects - Strong Editorial Feel
+   Text Effects
    ========================================================================== */
 
 .text-glow {
-  text-shadow: 0 0 25px rgba(184, 105, 74, 0.4) !important;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
 .text-outline {
-  -webkit-text-stroke: 1px rgba(240, 233, 223, 0.2);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
   color: transparent;
 }
 
-/* Editorial Typography - Increased letter-spacing */
-h1, h2, h3, .font-serif {
-  letter-spacing: 0.06em !important;
-  font-weight: 500;
-}
-
-.font-mono {
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase;
-}
-
-/* Italic accents for hand-noted feel */
-em, .italic, blockquote {
-  font-style: italic;
-  color: var(--artrix-paper);
-}
-
-/* Force serif fonts to have warmer feel */
-.font-serif {
-  color: var(--artrix-cream) !important;
-}
-
 /* ==========================================================================
-   Background Effects - Visible Drafting Table Aesthetic
+   Background Effects
    ========================================================================== */
 
 .bg-gradient-fade {
-  background: linear-gradient(to bottom, rgba(18, 18, 16, 0) 0%, rgba(18, 18, 16, 0.95) 100%) !important;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
 }
 
 .dot-grid {
-  background-image: radial-gradient(var(--artrix-ochre) 1px, transparent 1px) !important;
-  background-size: 20px 20px !important;
-  opacity: 0.15 !important;
+  background-image: radial-gradient(#555 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 .line-grid {
   background-image: 
-    linear-gradient(rgba(184, 105, 74, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184, 105, 74, 0.08) 1px, transparent 1px) !important;
-  background-size: 60px 60px !important;
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
 }
 
 /* ==========================================================================
-   Navigation Controls - Sketched/Tactile Buttons
+   Navigation Controls
    ========================================================================== */
 
 .nav-controls {
   z-index: 100;
 }
 
-/* Navigation buttons - hand-drawn circle aesthetic */
-#btn-prev,
-#btn-next,
-.nav-controls button {
-  width: 3.5rem !important;
-  height: 3.5rem !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  border: 2px dashed var(--artrix-ochre) !important;
-  background: rgba(18, 18, 16, 0.95) !important;
-  color: var(--artrix-cream) !important;
-  backdrop-filter: none !important;
+.nav-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-#btn-prev:hover,
-#btn-next:hover,
-.nav-controls button:hover {
-  background: var(--artrix-ochre) !important;
-  color: var(--artrix-dark) !important;
-  border-style: solid !important;
-  border-color: var(--artrix-ochre) !important;
+.nav-btn:hover {
+  background: white;
+  color: black;
 }
 
-#btn-prev:active,
-#btn-next:active,
-.nav-controls button:active {
-  transform: scale(0.92) !important;
-}
-
-/* Progress bar override */
-#progress-bar {
-  background: var(--artrix-ochre) !important;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--artrix-ochre),
-    var(--artrix-ochre) 4px,
-    var(--artrix-clay) 4px,
-    var(--artrix-clay) 8px
-  ) !important;
+.nav-btn:active {
+  transform: scale(0.95);
 }
 
 /* ==========================================================================
-   Interactive Elements - Strong Craft Aesthetic
+   Interactive Elements
    ========================================================================== */
 
 .pillar {
-  transition: all 0.5s ease;
-  border: 1px dashed var(--border-medium) !important;
-  background: rgba(18, 18, 16, 0.6) !important;
+  transition: all 0.4s ease;
 }
 
 .pillar:hover {
-  background: rgba(184, 105, 74, 0.1) !important;
-  border-color: var(--artrix-ochre) !important;
-  border-style: solid !important;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .pillar .progress-bar {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.6s ease;
-  background: var(--artrix-ochre) !important;
 }
 
 .pillar:hover .progress-bar {
   transform: scaleX(1);
 }
 
-/* Video Card - Art Print / Pinned Photo Aesthetic */
+/* Video Card */
 .video-card {
-  transition: all 0.5s ease;
-  border: 2px solid var(--border-medium) !important;
-  position: relative;
-  background: var(--artrix-dark) !important;
-}
-
-/* Large visible corner brackets like pinned photographs */
-.video-card::before,
-.video-card::after {
-  content: '';
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  border-color: var(--artrix-ochre);
-  opacity: 0.6;
-  transition: all 0.3s ease;
-  z-index: 50;
-}
-
-.video-card::before {
-  top: 12px;
-  left: 12px;
-  border-top: 2px solid;
-  border-left: 2px solid;
-}
-
-.video-card::after {
-  bottom: 12px;
-  right: 12px;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
+  transition: all 0.4s ease;
 }
 
 .video-card:hover {
-  border-color: var(--artrix-ochre) !important;
-}
-
-.video-card:hover::before,
-.video-card:hover::after {
-  opacity: 1;
-  width: 32px;
-  height: 32px;
+  border-color: var(--artrix-red);
 }
 
 .video-card:hover img {
-  filter: sepia(0.2) saturate(0.9) brightness(0.95) !important;
+  opacity: 1;
 }
 
 .video-card .play-btn {
-  transition: all 0.3s ease;
-  border: 2px dashed var(--artrix-cream) !important;
-  background: rgba(18, 18, 16, 0.85) !important;
-  backdrop-filter: none !important;
+  transition: transform 0.3s ease;
 }
 
 .video-card:hover .play-btn {
-  transform: scale(1.08);
-  border-color: var(--artrix-ochre) !important;
-  border-style: solid !important;
-  background: var(--artrix-ochre) !important;
+  transform: scale(1.1);
 }
 
 /* ==========================================================================
-   HUD Corner Brackets - Visible Architectural Markers
+   HUD Corner Brackets
    ========================================================================== */
 
 .hud-corners {
@@ -569,30 +289,32 @@ em, .italic, blockquote {
 }
 
 .hud-corners::before,
-.hud-corners::after {
+.hud-corners::after,
+.hud-corners .corner-bl,
+.hud-corners .corner-br {
   content: '';
   position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-color: var(--artrix-ochre);
+  width: 1rem;
+  height: 1rem;
+  border-color: var(--artrix-red);
 }
 
 .hud-corners::before {
-  top: -2px;
-  left: -2px;
+  top: 0;
+  left: 0;
   border-top: 2px solid;
   border-left: 2px solid;
 }
 
 .hud-corners::after {
-  top: -2px;
-  right: -2px;
+  top: 0;
+  right: 0;
   border-top: 2px solid;
   border-right: 2px solid;
 }
 
 /* ==========================================================================
-   Viewfinder Overlay - Drafting Frame
+   Viewfinder Overlay
    ========================================================================== */
 
 .viewfinder {
@@ -603,140 +325,28 @@ em, .italic, blockquote {
   content: '';
   position: absolute;
   inset: -2.5rem;
-  border: 1px solid rgba(245, 240, 232, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
   pointer-events: none;
 }
 
 /* ==========================================================================
-   Phone Mockup - Sketch Aesthetic
+   Phone Mockup
    ========================================================================== */
 
 .phone-mockup {
   width: 320px;
   height: 650px;
-  border: 6px solid #2a2a2a;
+  border: 8px solid #333;
   border-radius: 3rem;
-  background: var(--artrix-dark);
+  background: black;
   overflow: hidden;
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
-  transform: rotate(-3deg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: rotate(-5deg);
   transition: transform 1.5s ease;
 }
 
 .phone-mockup:hover {
   transform: rotate(0deg);
-}
-
-/* ==========================================================================
-   Image Styling - Photographs Pinned to Board
-   ========================================================================== */
-
-/* Sepia/Warm filter for background images */
-.slide img {
-  filter: sepia(0.15) saturate(0.9) brightness(0.95);
-  transition: filter 0.5s ease;
-}
-
-.slide img:hover {
-  filter: sepia(0.08) saturate(1) brightness(1);
-}
-
-/* Sharp thin border frames */
-.slide .border {
-  border-color: rgba(245, 240, 232, 0.12) !important;
-}
-
-/* Image containers as art prints */
-.slide [class*="aspect-video"],
-.slide [class*="relative"][class*="group"] {
-  position: relative;
-}
-
-/* Pin marks on image corners */
-.slide [class*="aspect-video"]::before,
-.slide .video-card::before {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 8px;
-  height: 8px;
-  border-top: 1px solid var(--artrix-ochre);
-  border-left: 1px solid var(--artrix-ochre);
-  opacity: 0.4;
-  z-index: 20;
-}
-
-/* Grayscale images get warm tint */
-.grayscale {
-  filter: grayscale(100%) sepia(0.2) brightness(0.9);
-}
-
-/* Progress bar styling */
-#progress-bar {
-  background: var(--artrix-ochre);
-}
-
-/* ==========================================================================
-   Utility Classes - Atelier Theme
-   ========================================================================== */
-
-.bg-artrix-red,
-[class*="bg-artrix-red"] {
-  background-color: var(--artrix-ochre) !important;
-}
-
-.text-artrix-red,
-[class*="text-artrix-red"] {
-  color: var(--artrix-ochre) !important;
-}
-
-.border-artrix-red,
-[class*="border-artrix-red"] {
-  border-color: var(--artrix-ochre) !important;
-}
-
-/* Cream text for better contrast */
-.text-white {
-  color: var(--artrix-cream);
-}
-
-.text-white\/90 {
-  color: rgba(245, 240, 232, 0.9);
-}
-
-.text-white\/80 {
-  color: rgba(245, 240, 232, 0.8);
-}
-
-.text-white\/70 {
-  color: rgba(245, 240, 232, 0.7);
-}
-
-.text-white\/60 {
-  color: rgba(245, 240, 232, 0.6);
-}
-
-.text-white\/50 {
-  color: rgba(245, 240, 232, 0.5);
-}
-
-/* Background adjustments */
-.bg-black {
-  background-color: var(--artrix-dark);
-}
-
-.bg-black\/60,
-.bg-black\/50,
-.bg-black\/40,
-.bg-black\/30 {
-  background-color: rgba(15, 15, 15, 0.85);
-}
-
-/* Border subtle */
-.border-white\/10,
-.border-white\/20 {
-  border-color: rgba(245, 240, 232, 0.1);
 }
 
 /* ==========================================================================
@@ -1138,128 +748,6 @@ em, .italic, blockquote {
   .inline-flex .w-px {
     display: none;
   }
-
-  /* ==========================================================================
-     SPECIFIC SLIDE FIXES FOR MOBILE
-     ========================================================================== */
-
-  /* Slide 2-5: Fix header overlap - add scroll and padding */
-  .slide[data-index="2"],
-  .slide[data-index="3"],
-  .slide[data-index="4"],
-  .slide[data-index="5"] {
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .slide[data-index="2"] .absolute.inset-0.flex,
-  .slide[data-index="3"] .absolute.inset-0.flex,
-  .slide[data-index="4"] .absolute.inset-0.flex,
-  .slide[data-index="5"] .absolute.inset-0.flex {
-    position: relative !important;
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
-    min-height: 100vh;
-    align-items: flex-start !important;
-  }
-
-  /* Slide 2: Portal layout fix */
-  .slide[data-index="2"] .w-\[60vw\] {
-    width: 95% !important;
-    height: auto !important;
-    min-height: 40vh;
-    margin: 1rem auto;
-  }
-
-  .slide[data-index="2"] .absolute.left-12,
-  .slide[data-index="2"] .absolute.right-12 {
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-    margin: 1rem !important;
-    max-width: calc(100% - 2rem) !important;
-  }
-
-  /* Slide 3: Service framework - better stacking */
-  .slide[data-index="3"] .flex.justify-center.gap-8.items-end {
-    padding-top: 1rem;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    height: auto !important;
-  }
-
-  .slide[data-index="3"] .flex.justify-center.gap-8.items-end > div {
-    height: auto !important;
-    min-height: 180px;
-    padding: 1.5rem !important;
-  }
-
-  /* Slide 8: Full background image and brighter */
-  .slide[data-index="8"] {
-    overflow: hidden !important;
-  }
-
-  .slide[data-index="8"] > div:first-child {
-    position: absolute !important;
-    inset: 0 !important;
-  }
-
-  .slide[data-index="8"] > div:first-child img {
-    opacity: 0.65 !important;
-    object-fit: cover !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  /* Reduce dark overlays on mobile for brighter image */
-  .slide[data-index="8"] > div:first-child > div:nth-child(2) {
-    background: rgba(0,0,0,0.15) !important;
-  }
-
-  .slide[data-index="8"] > div:first-child > div:nth-child(3) {
-    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%) !important;
-  }
-
-  .slide[data-index="8"] .absolute.inset-0.flex {
-    position: relative !important;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-    min-height: 100vh;
-    justify-content: center !important;
-  }
-
-  .slide[data-index="8"] .bg-black\/70 {
-    margin-top: 2rem;
-  }
-
-  /* Slide 11: Phase cards overlap fix */
-  .slide[data-index="11"] {
-    overflow-y: auto !important;
-  }
-
-  .slide[data-index="11"] .grid-cols-3 {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-  }
-
-  .slide[data-index="11"] .grid-cols-3 > div {
-    margin-top: 0 !important;
-    padding: 1.5rem !important;
-    border-radius: 0.5rem;
-  }
-
-  /* Phase 2 highlight box fix */
-  .slide[data-index="11"] .grid-cols-3 > div:nth-child(2) {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  .slide[data-index="11"] .grid-cols-3 > div.-mt-6 {
-    margin-top: 0 !important;
-  }
 }
 
 /* Small phones (iPhone SE, older devices) */
@@ -1300,18 +788,18 @@ em, .italic, blockquote {
 }
 
 /* ==========================================================================
-   Image Optimization - Warm Atelier Aesthetic
+   Image Optimization
    ========================================================================== */
 
 img {
   image-rendering: -webkit-optimize-contrast;
 }
 
-/* Lazy loading placeholder - warm tones */
+/* Lazy loading placeholder */
 img[loading="lazy"] {
-  background: linear-gradient(90deg, #1a1816 0%, #252220 50%, #1a1816 100%);
+  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
   background-size: 200% 100%;
-  animation: shimmer 2s infinite;
+  animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
@@ -1344,13 +832,13 @@ img[loading="lazy"] {
 }
 
 .grayscale {
-  filter: grayscale(100%) sepia(0.15) brightness(0.9);
+  filter: grayscale(100%);
 }
 
-/* Selection - Craft Aesthetic */
+/* Selection */
 ::selection {
-  background: var(--artrix-ochre);
-  color: var(--artrix-cream);
+  background: var(--artrix-red);
+  color: white;
 }
 
 /* Scrollbar (hidden) */
@@ -1438,149 +926,4 @@ body {
   .slide[data-index="11"] .grid-cols-3 > div:nth-child(2) {
     margin-top: -1.5rem !important;
   }
-}
-
-/* ==========================================================================
-   DARK ATELIER - FINAL GLOBAL OVERRIDES (Highest Specificity)
-   These ensure the craft aesthetic is applied everywhere
-   ========================================================================== */
-
-/* Force warm charcoal background on ALL black areas */
-[class*="bg-black"],
-[class*="bg-[#0"],
-.bg-\[\#050505\],
-.bg-\[\#080808\],
-.bg-\[\#0a0a0a\],
-main,
-.slide > div:first-child {
-  background-color: #121210 !important;
-}
-
-/* Force gradient overlays to use warm tones */
-[class*="from-black"],
-.from-black\/80,
-.from-black\/60 {
-  --tw-gradient-from: #121210 !important;
-}
-
-/* ALL borders get warm ochre tint */
-[class*="border-white"],
-[class*="border-artrix"],
-.border,
-.border-white\/10,
-.border-white\/20,
-.border-white\/30 {
-  border-color: rgba(184, 105, 74, 0.25) !important;
-}
-
-/* ALL text-white becomes cream */
-[class*="text-white"]:not(.hover\:text-white):not([class*="hover:"]) {
-  color: #f0e9df !important;
-}
-
-/* Accent colors ALWAYS ochre */
-[class*="text-artrix-red"],
-[class*="text-orange"],
-[class*="text-red-500"],
-.text-cyan-300 {
-  color: #b8694a !important;
-}
-
-[class*="bg-artrix-red"],
-[class*="bg-orange"],
-.bg-red-500 {
-  background-color: #b8694a !important;
-}
-
-/* Force ALL backdrop-blur to be removed (no glassmorphism) */
-[class*="backdrop-blur"],
-.backdrop-blur,
-.backdrop-blur-sm,
-.backdrop-blur-md,
-.backdrop-blur-xl,
-.backdrop-blur-2xl {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  background-color: rgba(18, 18, 16, 0.92) !important;
-}
-
-/* Rounded elements get more architectural look */
-.rounded-full:not(button):not([id*="btn"]) {
-  border-radius: 4px !important;
-}
-
-.rounded-2xl,
-.rounded-xl {
-  border-radius: 2px !important;
-}
-
-/* ALL images get sepia warm filter */
-img:not([src*="svg"]) {
-  filter: sepia(0.2) saturate(0.85) brightness(0.9) contrast(1.05) !important;
-}
-
-/* Special icon styling */
-[class*="ph-"],
-i[class*="ph"] {
-  color: inherit;
-}
-
-/* Force visible dashed borders on key elements */
-.glass-card,
-.glass-hud,
-[class*="border"][class*="rounded"] {
-  border-style: solid !important;
-}
-
-/* Slide-specific background color enforcement */
-.slide {
-  background-color: #121210 !important;
-}
-
-.slide::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(184, 105, 74, 0.02) 0%, transparent 50%, rgba(184, 105, 74, 0.02) 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Visible crop/registration marks on main containers */
-.slide > div.absolute.inset-0:not(:first-child)::before {
-  content: '⊕';
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 12px;
-  color: var(--artrix-ochre);
-  opacity: 0.3;
-  font-family: 'Space Mono', monospace;
-}
-
-/* Animate ping uses ochre */
-.animate-ping {
-  background-color: rgba(184, 105, 74, 0.3) !important;
-}
-
-/* Green status indicators get muted */
-.text-green-400,
-.text-green-500 {
-  color: #7a9a7a !important;
-}
-
-/* Yellow status gets warmer */
-.text-yellow-400,
-.text-yellow-500 {
-  color: #c9a356 !important;
-}
-
-/* Box shadows use warm tones */
-[class*="shadow"] {
-  --tw-shadow-color: rgba(184, 105, 74, 0.1) !important;
-}
-
-/* Final image frame treatment */
-.slide img {
-  box-shadow: inset 0 0 0 1px rgba(184, 105, 74, 0.1);
 }

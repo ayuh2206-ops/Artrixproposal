@@ -21,23 +21,16 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Tailwind Config - The Dark Atelier -->
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        // The Dark Atelier Palette - Warm, Crafted, Architectural
-                        'artrix-red': '#b8694a',      // Burnt Ochre (replaces neon orange)
-                        'artrix-ochre': '#b8694a',    // Burnt Ochre
-                        'artrix-clay': '#8b4c35',     // Deeper Clay
-                        'artrix-terracotta': '#c97856', // Terracotta
-                        'artrix-dark': '#121210',     // Warm Charcoal
-                        'artrix-graphite': '#1c1b19', // Warm Graphite
-                        'artrix-cream': '#f0e9df',    // Off-White Cream
-                        'artrix-paper': '#d9d0c3',    // Aged Paper
-                        'glass-border': 'rgba(184, 105, 74, 0.2)',
-                        'glass-bg': 'rgba(18, 18, 16, 0.92)',
+                        'artrix-red': '#ea580c',
+                        'artrix-dark': '#050505',
+                        'glass-border': 'rgba(255, 255, 255, 0.15)',
+                        'glass-bg': 'rgba(20, 20, 20, 0.4)',
                     },
                     fontFamily: {
                         serif: ['"Cinzel"', 'serif'],
@@ -45,23 +38,23 @@
                         mono: ['"Space Mono"', 'monospace'],
                     },
                     animation: {
-                        'pan-slow': 'pan 80s infinite alternate linear',
-                        'float': 'float 8s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 5s infinite',
-                        'spin-slow': 'spin 25s linear infinite',
+                        'pan-slow': 'pan 60s infinite alternate linear',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'spin-slow': 'spin 20s linear infinite',
                     },
                     keyframes: {
                         pan: {
                             '0%': { transform: 'scale(1) translate(0, 0)' },
-                            '100%': { transform: 'scale(1.06) translate(-1%, -1%)' },
+                            '100%': { transform: 'scale(1.1) translate(-2%, -2%)' },
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         },
                         pulseGlow: {
-                            '0%, 100%': { opacity: '1', boxShadow: '0 0 12px rgba(184, 105, 74, 0.3)' },
-                            '50%': { opacity: '0.9', boxShadow: '0 0 6px rgba(184, 105, 74, 0.15)' },
+                            '0%, 100%': { opacity: '1', boxShadow: '0 0 20px rgba(234, 88, 12, 0.5)' },
+                            '50%': { opacity: '0.8', boxShadow: '0 0 10px rgba(234, 88, 12, 0.2)' },
                         }
                     }
                 }
@@ -72,35 +65,35 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="/src/styles/main.css">
 </head>
-<body class="antialiased bg-artrix-dark text-artrix-cream overflow-hidden">
+<body class="antialiased bg-artrix-dark text-white overflow-hidden">
 
     <!-- Top Navigation Overlay -->
-    <div class="nav-controls fixed top-8 left-8 pointer-events-none z-[200]">
-        <div class="text-artrix-ochre font-mono text-[10px] tracking-[0.5em] uppercase mb-1 italic">Strategic Proposal</div>
-        <div class="text-artrix-cream font-serif text-sm tracking-[0.2em] font-medium">ARTRIX × VERO MEDIA</div>
+    <div class="nav-controls fixed top-8 left-8 mix-blend-difference pointer-events-none z-[200]">
+        <div class="text-artrix-red font-mono text-[10px] tracking-[0.4em] uppercase mb-1">Strategic Proposal</div>
+        <div class="text-white font-serif text-sm tracking-widest font-bold">ARTRIX × VERO MEDIA</div>
     </div>
 
     <!-- Slide Indicator -->
-    <div class="nav-controls fixed bottom-8 left-8 pointer-events-none">
-        <div class="text-artrix-cream font-serif text-2xl font-medium" id="slide-indicator">01<span class="text-sm opacity-40 font-normal mx-2">/</span>13</div>
+    <div class="nav-controls fixed bottom-8 left-8 mix-blend-difference pointer-events-none">
+        <div class="text-white font-serif text-2xl font-bold" id="slide-indicator">01<span class="text-sm opacity-50 font-normal mx-2">/</span>13</div>
     </div>
 
-    <!-- Navigation Buttons - Tactile/Sketched Style -->
+    <!-- Navigation Buttons -->
     <div class="nav-controls fixed bottom-8 right-8 flex gap-4 pointer-events-auto z-[200]">
-        <button id="btn-prev" class="w-14 h-14 rounded-full border-2 border-dashed border-artrix-ochre bg-artrix-dark flex items-center justify-center hover:bg-artrix-ochre hover:border-solid transition-all cursor-pointer group active:scale-95 opacity-30 pointer-events-none">
-            <i class="ph ph-arrow-left text-xl text-artrix-cream group-hover:text-artrix-dark"></i>
+        <button id="btn-prev" class="w-14 h-14 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer group active:scale-95 opacity-30 pointer-events-none">
+            <i class="ph ph-arrow-left text-xl"></i>
         </button>
-        <button id="btn-next" class="w-14 h-14 rounded-full border-2 border-dashed border-artrix-ochre bg-artrix-dark flex items-center justify-center hover:bg-artrix-ochre hover:border-solid transition-all cursor-pointer group active:scale-95">
-            <i class="ph ph-arrow-right text-xl text-artrix-cream group-hover:text-artrix-dark"></i>
+        <button id="btn-next" class="w-14 h-14 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer group active:scale-95">
+            <i class="ph ph-arrow-right text-xl"></i>
         </button>
     </div>
 
-    <!-- Progress Bar - Ochre -->
-    <div class="fixed top-0 left-0 w-full h-[2px] bg-artrix-cream/10 z-[200]">
-        <div id="progress-bar" class="h-full bg-artrix-ochre transition-all duration-500" style="width: 7.69%"></div>
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-white/10 z-[200]">
+        <div id="progress-bar" class="h-full bg-artrix-red transition-all duration-500" style="width: 7.69%"></div>
     </div>
 
-    <main class="relative w-full h-screen bg-artrix-dark">
+    <main class="relative w-full h-screen bg-black">
 
         <!-- ================================================================
              SLIDE 1: TITLE - Strategic Digital Transformation
@@ -203,11 +196,11 @@
                         <p class="font-sans text-sm text-white/70">Custom web development optimized for high-stakes presentations to Ministers and Officials.</p>
                         <div class="h-1 w-full bg-artrix-red mt-6 progress-bar"></div>
                     </div>
-                    <!-- Pillar 2: Project Documentation (Taller) -->
+                    <!-- Pillar 2: Strategic Social Management (Taller) -->
                     <div class="w-1/3 h-[100%] bg-gradient-to-t from-white/10 to-transparent border border-white/10 p-8 flex flex-col justify-end group hover:bg-white/5 transition-all pillar">
-                        <i class="ph ph-film-slate text-6xl text-white mb-6 group-hover:text-artrix-red transition-colors drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
-                        <h3 class="font-serif text-3xl text-white mb-2">Project Documentation</h3>
-                        <p class="font-sans text-sm text-white/70">Cinematic video production showcasing engineering mastery and construction milestones.</p>
+                        <i class="ph ph-instagram-logo text-6xl text-white mb-6 group-hover:text-artrix-red transition-colors drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"></i>
+                        <h3 class="font-serif text-3xl text-white mb-2">Strategic Social Management</h3>
+                        <p class="font-sans text-sm text-white/70">Building a living portfolio through detailed carousels and educational content on Instagram & LinkedIn.</p>
                         <div class="h-1 w-full bg-white mt-6 progress-bar"></div>
                     </div>
                     <!-- Pillar 3: Industry Leadership -->
@@ -421,7 +414,7 @@
         </div>
 
         <!-- ================================================================
-             SLIDE 7: GLOBAL PRODUCTION STANDARDS
+             SLIDE 7: AGILE SITE CAPTURE
              ================================================================ -->
         <div class="slide" data-index="7">
             <div class="absolute inset-0">
@@ -443,28 +436,29 @@
                         <div class="absolute top-4 left-1/2 -translate-x-1/2 text-[10px] font-mono text-white bg-black/50 px-2">REC [00:12:34]</div>
                     </div>
 
-                    <h2 class="text-7xl font-serif text-white mb-6 relative z-10 drop-shadow-2xl">Global Production<br><span class="text-artrix-red">Standards.</span></h2>
+                    <h2 class="text-7xl font-serif text-white mb-4 relative z-10 drop-shadow-2xl">Agile Site<br><span class="text-artrix-red">Capture.</span></h2>
+                    <p class="font-mono text-sm text-artrix-red tracking-wider mb-6 relative z-10">CLIENT-LED RECORDING & PRO POST-PRODUCTION</p>
                     <p class="font-sans text-xl text-white/90 max-w-xl leading-relaxed mb-12 relative z-10 font-light">
-                        Utilizing cinema-grade equipment to ensure your projects look as impressive on screen as they do in reality.
+                        A streamlined, resource-efficient approach to documenting your legacy.
                     </p>
                     
-                    <div class="flex gap-16 pt-8 relative z-10 bg-black/40 p-6 rounded-xl backdrop-blur-sm border border-white/10 inline-flex">
-                        <div class="text-center">
-                            <div class="font-serif text-4xl mb-1 text-artrix-red">4K</div>
-                            <div class="font-mono text-[10px] text-white/70 uppercase">Aerials</div>
-                            <div class="text-[9px] text-white/50">Drone Cinematography</div>
+                    <div class="flex gap-12 pt-8 relative z-10 bg-black/40 p-6 rounded-xl backdrop-blur-sm border border-white/10 inline-flex">
+                        <div class="text-center max-w-[140px]">
+                            <i class="ph ph-video-camera text-3xl text-artrix-red mb-2"></i>
+                            <div class="font-mono text-[10px] text-white/70 uppercase mb-1">The Workflow</div>
+                            <div class="text-[10px] text-white/50 leading-tight">Your team captures raw, authentic site progress</div>
                         </div>
-                        <div class="w-px h-16 bg-white/20"></div>
-                        <div class="text-center">
-                            <div class="font-serif text-4xl mb-1 text-artrix-red">DNG</div>
-                            <div class="font-mono text-[10px] text-white/70 uppercase">Color Grading</div>
-                            <div class="text-[9px] text-white/50">Cinema Profiles</div>
+                        <div class="w-px h-20 bg-white/20"></div>
+                        <div class="text-center max-w-[140px]">
+                            <i class="ph ph-magic-wand text-3xl text-artrix-red mb-2"></i>
+                            <div class="font-mono text-[10px] text-white/70 uppercase mb-1">Our Role</div>
+                            <div class="text-[10px] text-white/50 leading-tight">Pro editing, color grading & narrative structure</div>
                         </div>
-                        <div class="w-px h-16 bg-white/20"></div>
-                        <div class="text-center">
-                            <div class="font-serif text-4xl mb-1 text-artrix-red">PRO</div>
-                            <div class="font-mono text-[10px] text-white/70 uppercase">Sound Design</div>
-                            <div class="text-[9px] text-white/50">Audio Mastering</div>
+                        <div class="w-px h-20 bg-white/20"></div>
+                        <div class="text-center max-w-[140px]">
+                            <i class="ph ph-chart-line-up text-3xl text-artrix-red mb-2"></i>
+                            <div class="font-mono text-[10px] text-white/70 uppercase mb-1">The Result</div>
+                            <div class="text-[10px] text-white/50 leading-tight">High-frequency content without heavy logistics</div>
                         </div>
                     </div>
                 </div>
